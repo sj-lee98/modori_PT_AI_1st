@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		874D080227D4F5A30030A267 /* Predictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874D080127D4F5A30030A267 /* Predictor.swift */; };
+		874D080627D4FCD80030A267 /* modoriAction.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 874D080527D4FCD80030A267 /* modoriAction.mlmodel */; };
 		876DFA3127D4A01B0047ADDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876DFA3027D4A01B0047ADDE /* AppDelegate.swift */; };
 		876DFA3327D4A01B0047ADDE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876DFA3227D4A01B0047ADDE /* SceneDelegate.swift */; };
 		876DFA3527D4A01B0047ADDE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876DFA3427D4A01B0047ADDE /* ViewController.swift */; };
 		876DFA3827D4A01B0047ADDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 876DFA3627D4A01B0047ADDE /* Main.storyboard */; };
 		876DFA3A27D4A01C0047ADDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 876DFA3927D4A01C0047ADDE /* Assets.xcassets */; };
 		876DFA3D27D4A01C0047ADDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 876DFA3B27D4A01C0047ADDE /* LaunchScreen.storyboard */; };
+		876DFA4527D4A1110047ADDE /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876DFA4427D4A1110047ADDE /* VideoCapture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		874D080127D4F5A30030A267 /* Predictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predictor.swift; sourceTree = "<group>"; };
+		874D080527D4FCD80030A267 /* modoriAction.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = modoriAction.mlmodel; sourceTree = "<group>"; };
 		876DFA2D27D4A01B0047ADDE /* modori_PT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = modori_PT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		876DFA3027D4A01B0047ADDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		876DFA3227D4A01B0047ADDE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +29,7 @@
 		876DFA3927D4A01C0047ADDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		876DFA3C27D4A01C0047ADDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		876DFA3E27D4A01C0047ADDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		876DFA4427D4A1110047ADDE /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +65,13 @@
 				876DFA3027D4A01B0047ADDE /* AppDelegate.swift */,
 				876DFA3227D4A01B0047ADDE /* SceneDelegate.swift */,
 				876DFA3427D4A01B0047ADDE /* ViewController.swift */,
+				876DFA4427D4A1110047ADDE /* VideoCapture.swift */,
+				874D080127D4F5A30030A267 /* Predictor.swift */,
 				876DFA3627D4A01B0047ADDE /* Main.storyboard */,
 				876DFA3927D4A01C0047ADDE /* Assets.xcassets */,
 				876DFA3B27D4A01C0047ADDE /* LaunchScreen.storyboard */,
 				876DFA3E27D4A01C0047ADDE /* Info.plist */,
+				874D080527D4FCD80030A267 /* modoriAction.mlmodel */,
 			);
 			path = modori_PT;
 			sourceTree = "<group>";
@@ -138,9 +147,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				876DFA4527D4A1110047ADDE /* VideoCapture.swift in Sources */,
 				876DFA3527D4A01B0047ADDE /* ViewController.swift in Sources */,
+				874D080627D4FCD80030A267 /* modoriAction.mlmodel in Sources */,
 				876DFA3127D4A01B0047ADDE /* AppDelegate.swift in Sources */,
 				876DFA3327D4A01B0047ADDE /* SceneDelegate.swift in Sources */,
+				874D080227D4F5A30030A267 /* Predictor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,18 @@
+{
+  "MLModelVersionStringKey" : "--",
+  "MLModelDescriptionKey" : "--",
+  "MLModelCreatorDefinedKey" : {
+    "target" : "label",
+    "Target Frame Rate" : "30.0",
+    "com.apple.coreml.model.preview.type" : "actionClassifier",
+    "com.apple.createml.version" : "12.2.0",
+    "classes" : "Crunch,Lunge,Squat_videos,situp",
+    "max_iterations" : "180",
+    "com.apple.createml.app.tag" : "78.8",
+    "type" : "action_classification",
+    "com.apple.createml.app.version" : "3.0",
+    "Prediction Window Size" : "60"
+  },
+  "MLModelAuthorKey" : "이태경",
+  "MLModelLicenseKey" : "--"
+}
