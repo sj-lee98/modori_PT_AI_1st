@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import AVFoundation // audio visual 프레임워크
+import AVFoundation // audio visual 프레임워크 -> call previewLayer
 import AudioToolbox
 
 
@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     let videoCapture = VideoCapture()
     var previewLayer: AVCaptureVideoPreviewLayer?
     
+    // 인식 포인트 그리는 레이어
     var pointsLayer = CAShapeLayer()
     
     var isActionDetected = false
@@ -25,23 +26,26 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupVideoPreview()
+        setupVideoPreview() // video setup
         
         videoCapture.predictor.delegate = self
         
     }
 
     private func setupVideoPreview() {
+        
         videoCapture.startCaptureSession()
+        // 실제 영상 따와서 뷰에 띄움
         previewLayer = AVCaptureVideoPreviewLayer(session: videoCapture.captureSession)
         
-        guard let previewLayer = previewLayer else { return }
+        guard let previewLayer = previewLayer else { return } // initialize
         
         view.layer.addSublayer(previewLayer)
         previewLayer.frame = view.frame
         
         view.layer.addSublayer(pointsLayer)
         pointsLayer.frame = view.frame
+        // 초록색으로 인식포인트 점 그림
         pointsLayer.strokeColor = UIColor.green.cgColor
 
     }
@@ -49,6 +53,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: PredictorDelegate {
+    // predictor로 부터 운동종류 및 confidence 받아옴
     func predictor(_ predictor: Predictor, didLabelAction action: String, with confidence: Double) {
         if action == "Lunge" && confidence > 0.55 && isActionDetected == false {
             print("Lunge detected")
@@ -115,6 +120,7 @@ extension ViewController: PredictorDelegate {
         
         pointsLayer.path = combinedPath
         
+        // 프레임이 변경될때마다 포인트 계산 동기화 -> 메인스레드에서 진행
         DispatchQueue.main.async {
             self.pointsLayer.didChangeValue(for: \.path)
         }
