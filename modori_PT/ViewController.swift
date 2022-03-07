@@ -12,6 +12,9 @@ import AudioToolbox
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var poses: UILabel!
+    @IBOutlet weak var confidence: UILabel!
+    
     let videoCapture = VideoCapture()
     var previewLayer: AVCaptureVideoPreviewLayer?
     
@@ -47,35 +50,54 @@ class ViewController: UIViewController {
 
 extension ViewController: PredictorDelegate {
     func predictor(_ predictor: Predictor, didLabelAction action: String, with confidence: Double) {
-        if action == "Lunge" && confidence > 0.80  {
+        if action == "Lunge" && confidence > 0.55 && isActionDetected == false {
             print("Lunge detected")
-            isActionDetected = true
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.isActionDetected = false
-            }
-            
             DispatchQueue.main.async {
-                AudioServicesPlayAlertSound(SystemSoundID(1007))
+                self.poses.text = action
+                self.confidence.text = String(confidence)
             }
+            isActionDetected = true
+            delayAndSoundEffect()
         }
         
-        else if action == "Crunch" && confidence > 0.95 && isActionDetected == false {
+        else if action == "Crunch" && confidence > 0.55 && isActionDetected == false {
             print("Crunch detected")
-            isActionDetected = true
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.isActionDetected = false
-            }
-            
             DispatchQueue.main.async {
-                AudioServicesPlayAlertSound(SystemSoundID(1007))
+                self.poses.text = action
+                self.confidence.text = String(confidence)
             }
+            isActionDetected = true
+            delayAndSoundEffect()
+        }
+        else if action == "situp" && confidence > 0.55 && isActionDetected == false {
+            print("SitUp detected")
+            DispatchQueue.main.async {
+                self.poses.text = action
+                self.confidence.text = String(confidence)
+            }
+            isActionDetected = true
+            delayAndSoundEffect()
+        }
+        else if action == "Squat_videos" && confidence > 0.55 && isActionDetected == false {
+            print("Squat detected")
+            DispatchQueue.main.async {
+                self.poses.text = action
+                self.confidence.text = String(confidence)
+            }
+            isActionDetected = true
+            delayAndSoundEffect()
         }
         
-       
+    }
+    
+    func delayAndSoundEffect() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.isActionDetected = false
+        }
         
-        
+        DispatchQueue.main.async {
+            AudioServicesPlayAlertSound(SystemSoundID(1007))
+        }
     }
     
     func predictor(_ predictor: Predictor, didFindNewRecognizedPoints points: [CGPoint]) {

@@ -8,7 +8,7 @@
 import Foundation
 import Vision
 
-typealias ThrowingClassifier = modoriAction
+typealias ModoriActionClassifier = modoriAction
 
 protocol PredictorDelegate: AnyObject {
     func predictor(_ predictor: Predictor, didFindNewRecognizedPoints points: [CGPoint])
@@ -56,7 +56,7 @@ class Predictor {
     }
     
     func labelActionType() {
-        guard let throwingClassifier = try? ThrowingClassifier(configuration: MLModelConfiguration()),
+        guard let throwingClassifier = try? ModoriActionClassifier(configuration: MLModelConfiguration()),
               let poseMultiArray = prepareInputWithObservations(posesWindow),
               let predictions = try? throwingClassifier.prediction(poses: poseMultiArray)
         else { return }
